@@ -46,18 +46,21 @@
                     <option value="Nail Trim">Nail Trim</option>
                     <option value="Oil Gland">Oil glands</option>
                     <option value="Massage">Massage</option>
-
                 </select>
                
             </div>
             <div>
-                <button onclick="displayRows()" class="btn btn-outline-primary">Register</button>
+                <button onclick="register()">Register</button>
             </div>
         </div>
-        <h2 class="h2-2">Registered pets</h2>
-        <div id="petCards"> </div>
+        <h2 class="h2-2">Registered Pets <span id="totalPets"></span></h2>
+        <div id="petCards"> 
 
-
+        </div>
+        <div class="mb-3">
+            <input type="search" class="form-control" id="txtSearch">
+            <button onclick="search()">Search</button>
+        </div>
         <div>
             <table class="table table-striped-columns">
                 <thead>
@@ -67,31 +70,18 @@
                         <th>Gender</th>
                         <th>Breed</th>
                         <th>Service</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
-            <tbody id="petRows">
-                <thead>
-                    <td>Jack</td>
-                    <td>4</td>
-                    <td>Male</td>
-                    <td>Bernedoodle</td>
-                    <td>Haircut</td>
-                </thead>
-                <thead>
-                    <td>Ben</td>
-                    <td>2</td>
-                    <td>Male</td>
-                    <td>Bernes Mtn Dog</td>
-                    <td>Bath</td>
-                </thead>
+            <tbody id="petRows">  
             </tbody>
+
 
             </table>
         </div>
-
     </main>
 
-    <script src="JS/register.js"></script>
+    <script src=JS/register.backup.js></script>
     
     </main>
 </body>

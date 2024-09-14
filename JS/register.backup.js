@@ -1,12 +1,12 @@
 
 let pets=[];//empty array
 
-function Pet(name,age,gender,breed){
-    //property=paramenter
+function Pet(name,age,gender,breed,service){
     this.name=name;
     this.age=age;
     this.gender=gender;
     this.breed=breed;
+    this.service=service;
 }
 //get the inputs
 let inputName = document.getElementById("txtName");
@@ -24,29 +24,80 @@ function isValid(pet){
 }
 
 function register(){
-    console.log(inputName.value,inputAge.value,inputGender.value,inputBreed.value);
+    console.log(inputName.value,inputAge.value,inputGender.value,inputBreed.value, inputService.value);
     //create an obj
     let newPet = new Pet(inputName.value,inputAge.value,inputGender.value,inputBreed.value,inputService.value);
+    console.log("newPet",newPet);
     if(isValid(newPet)==true){
         pets.push(newPet)//push the newpet to the array
         //display on the console the new pet  
         console.log(newPet);
-        displayCards();
+        displayRows();
      }else{
         alert("Fill in this form");
      }
 }
 
-function init(){
-    console.log("Init fn");
-    let jack = new Pet("Jack",4,"Male","Bernedoodle");
-    let ben = new Pet("Ben",2,"Male","Bernese Mountain Dog");
-    pets.push(jack,ben);
 
+function displayRows(){
+    const TABLE = document.getElementById("petRows");
+    let tr="";
+    for(let i=0; i<pets.length; i++){
+        let pet = pets[i];
+        tr+= `
+            <tr id="${i}">
+                <td>${pet.name}</td>
+                <td>${pet.age}</td>
+                <td>${pet.gender}</td>
+                <td>${pet.breed}</td>
+                <td>${pet.service}</td>
+                <td><button onclick="deletePet(${i})">Delete</button></td>
+            </tr>
+        `;
+    }
+TABLE.innerHTML= tr;
+document.getElementById("totalPets").innerHTML=pets.length;
+
+}
+
+function deletePet(petID){
+    console.log("Deleting the pet");
+    document.getElementById(petID).remove();
+    pets.splice(petID,1);//removes pet from the array
+    displayRows();
+}
+
+function search(){
+    displayRows();
+    let ss=document.getElementById("txtSearch").value;
+    let foundPet=null;
+    let id;
+
+    for(let i=0;i<pets.length;i++){
+        if(pets[i].name.toLowerCase() == ss.toLowerCase()){
+            foundPet=pets[i];
+            id=i;
+            break;
+        }
+    }
+
+    if(foundPet){
+        document.getElementById(id).classList.add("highlight");
+    }else{
+        displayRows();
+    }
 }
 
 
 
 
+
+function init(){
+    displayRows();
+    
+}
 window.onload=init;
+
+
+
 
