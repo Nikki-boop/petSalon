@@ -58,8 +58,13 @@ h2{
 
 }
 
-h3{
-    color: neon greenyellow;
+.text{
+    color: rgb(41, 151, 31);
+    transition: color 0.3s ease;
+}
+
+.text:hover{
+    color: rgb(248, 248, 12);
 }
 /*header*/
 
@@ -106,4 +111,25 @@ header{
     background-position: center;
     height: 100vh;
     margin: 0;
+}
+/*Services*/
+
+.h1-3{
+    text-align: center;
+    margin-top: 20px;
+    border: 2px solid black;
+    border-radius: 15px;
+    padding: 30px;
+    color: black;  
+}
+
+.h2-3{
+    text-align: center;
+    margin-top: 20px;
+    border: 2px solid black;
+    border-radius: 20px;
+    padding: 10px;
+    color: black;
+
+
 }
