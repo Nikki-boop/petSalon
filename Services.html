@@ -15,18 +15,31 @@
             <a href="register.html">Register</a>
         </nav>
     </div>
-    <h2 class="h2-3">Register a new service</h2>
-        <label>Description:</label>
-        <input type="text" id="txtDescription" class="form-control"></div>
     
-        <label>Price:</label>
-        <input type="text" id="txtPrice"class="form-control">
+    <h2 class="h2-3">Register a new service</h2>
+
+
+    <div class="form-control">
+        <div class="">
+        <label class="form-control">Description:</label>
+        <input type="text" id="txtDescription" class="form-control"/>
+        <small class="titleValidationMsg">This is a required field</small>
         </div>
-        <button onclick="register()">Register</button>
+    
+        <div class="">
+        <label class="form-control">Price:</label>
+        <input type="number" id="txtPrice"class="form-control"/>
+        <small class="titleValidationMsg">This is a required field</small>
         </div>
 
+        <div>
+        <button onclick="register()">Register</button>
+        </div>
+        
+    </div>
+
     <script src="JS/jquery.js"></script>
-    <script src="JS/practice.js"></script>
+    <script src="JS/services.js"></script>
     <script src="JS/storeManager.js"></script>
    
 </body>

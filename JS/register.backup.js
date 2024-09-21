@@ -88,13 +88,29 @@ function search(){
     }
 }
 
+function getServices(){
+    
+    //get the list of services on the LS
+    let services = read();
+    let option;
+    //travel the array (for)
+    for(let i=0; i<services.length; i++){
+        let service = services[i];
+        //HTML for <option>
+        option=`<option value="${service.description}">${service.description}</option>`;
+    }
+    $("#txtService").append(option);
 
-
-
+}
 
 function init(){
+    console.log("Init fn");
+    let jack = new Pet ("Jack", 4, "Male", "Bernedoodle", "grooming");
+    let ben = new Pet ("Ben", 2, "Male", "Bernese Mtn Dog", "grooming");
+    pets.push(jack, ben);
+
     displayRows();
-    
+    getServices();
 }
 window.onload=init;
 
