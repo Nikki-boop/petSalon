@@ -3,19 +3,22 @@ function Service(description,price){
     this.description=description;
     this.price=price;
 }
-function isValidService(Service){
+function isValidService(service){
     let validDescription=true;
     let validPrice=true;
 
-    if(Service.description==""){
+    if(service.description==""){
         validDescription=false;
         $(".descriptionValidationMsg").css("color", "red").show();
     }else{
         $(".descriptionValidationMsg").hide();
     }
 
-    if(Service.price==""){
+    if(service.price==""){
         validPrice=false;
+        $(".priceValidationMsg").css("color", "red").show();
+    }else{
+        $(".priceValidationMsg").hide();
 
     }
     return validDescription;
@@ -34,6 +37,7 @@ function register(){
 
 function init(){
     $(".descriptionValidationMsg").hide();
+    $(".priceValidationMsg").hide();
 }
 
 
